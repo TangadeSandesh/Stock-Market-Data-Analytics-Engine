@@ -1,0 +1,18 @@
+1. Start Zoopkeeper
+    bin/zookeeper-server-start.sh config/zookeeper.properties
+
+2. Configure kafka
+    export KAFKA_HEAP_OPTS="-Xmx512M -Xms256M"
+
+3. Start Kafka server
+    bin/kafka-server-start.sh config/server.properties
+
+4. create a topic 
+    bin/kafka-topics.sh --create --topic test --bootstrap-server ec2-xx-xxx-xx-xxx.us-west-2.compute.amazonaws.com:9092 --partitions 1 --replication-factor 1
+
+5. Produce Messages
+    bin/kafka-console-producer.sh --topic test --bootstrap-server ec2-xx-xxx-xx-xxx.us-west-2.compute.amazonaws.com:9092
+
+6. Consume Messages
+    bin/kafka-console-consumer.sh --topic test --bootstrap-server ec2-xx-xxx-xx-xxx.us-west-2.compute.amazonaws.com:9092
+
