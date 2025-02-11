@@ -1,7 +1,20 @@
 # Real-Time Stock Market Data Pipeline
 
 ## Project Architecture
-![Project Architecture](architecture.png)
+<details>
+<summary>Click to view architecture diagram</summary>
+
+```mermaid
+graph LR
+    A[Stock Market Data] --> B[Kafka Producer]
+    B --> C[Apache Kafka]
+    C --> D[Kafka Consumer]
+    D --> E[Amazon S3]
+    E --> F[AWS Glue]
+    F --> G[Amazon Athena]
+    G --> H[Data Analysis]
+```
+</details>
 
 ## Project Overview
 This project implements a real-time stock market data pipeline using Apache Kafka. The system ingests stock market data, processes it through a Kafka pipeline, and stores it in Amazon S3, making it available for further analysis through Amazon Athena and AWS Glue.
